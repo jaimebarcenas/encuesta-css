@@ -26,7 +26,6 @@
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /* INTRO */
   .intro-card { max-width: 640px; margin: 36px auto; background: white; border-radius: 16px; padding: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .intro-card h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; }
   .user-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; }
@@ -38,7 +37,6 @@
   .score-item { background: #f3f4f6; border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
   .score-badge { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: white; flex-shrink: 0; }
 
-  /* SURVEY */
   .progress-bar-wrap { background: #1e3a5f; padding: 10px 24px; }
   .progress-fill { height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--accent)); transition: width 0.4s; width: 0%; }
   .survey-wrap { max-width: 700px; margin: 28px auto; padding: 0 16px 60px; }
@@ -46,7 +44,6 @@
   .item-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
   .score-select { width: 60px; border: 2px solid var(--border); border-radius: 8px; padding: 6px; font-weight: 700; text-align: center; }
 
-  /* RESULTS */
   .result-wrap { max-width: 680px; margin: 28px auto; padding: 0 16px 60px; }
   .scores-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-bottom: 20px; }
   .score-card { background: white; border-radius: 14px; padding: 20px; text-align: center; border-top: 5px solid var(--border); position: relative; }
@@ -74,7 +71,7 @@
 <div id="screen-intro" class="screen active">
   <div class="intro-card">
     <h2>¿Para qué sirve este cuestionario?</h2>
-    <p>Este instrumento te permite identificar tu <strong>estilo dominante</strong> y tu <strong>estilo de apoyo</strong> para comunicarte y relacionarte con los demás. No hay respuestas correctas ni incorrectas.</p>
+    <p>Este instrumento te permite identificar tu <strong>estilo dominante</strong> y tu <strong>estilo de apoyo</strong> para comunicarte y relacionarte con los demás. No hay respuestas correctas ni incorrectas[cite: 148, 149].</p>
     
     <div style="margin: 20px 0;">
       <p style="font-weight:700; margin-bottom:8px;">Tus datos de identificación:</p>
@@ -85,25 +82,23 @@
     <div class="rule-box">
       <strong>Cómo puntuar cada afirmación:</strong>
       <div class="score-legend">
-        <div class="score-item"><div class="score-badge" style="background:var(--navy)">6</div><span>La que <strong>más</strong> se parece a ti</span></div>
-        <div class="score-item"><div class="score-badge" style="background:var(--blue)">4</div><span>La siguiente más cercana</span></div>
-        <div class="score-item"><div class="score-badge" style="background:#6366f1">3</div><span>La tercera en cercanía</span></div>
-        <div class="score-item"><div class="score-badge" style="background:var(--gray)">1</div><span>La que <strong>menos</strong> te representa</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--navy)">6</div><span>La que <strong>más</strong> se parece a ti [cite: 153]</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--blue)">4</div><span>La siguiente más cercana [cite: 153]</span></div>
+        <div class="score-item"><div class="score-badge" style="background:#6366f1">3</div><span>La tercera en cercanía [cite: 154]</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--gray)">1</div><span>La que <strong>menos</strong> te representa [cite: 154]</span></div>
       </div>
     </div>
 
     <div class="rule-box" style="border-left-color: var(--accent); background: #fffbeb;">
       <strong style="color: #92400e;">Reglas de oro:</strong>
       <ul style="color: #92400e;">
-        <li>Usa los cuatro números (6, 4, 3 y 1) en cada afirmación</li>
-        <li>No repitas un número dentro de la misma afirmación</li>
-        <li>No dejes alternativas en blanco</li>
+        <li>Usa los cuatro números (6, 4, 3 y 1) en cada afirmación [cite: 165]</li>
+        <li>No repitas un número dentro de la misma afirmación [cite: 165]</li>
+        <li>No dejes alternativas en blanco [cite: 168]</li>
         <li>Responde rápido – si sobrepiensas, distorsionas tu patrón natural</li>
         <li>No busques "lo correcto", busca "lo más parecido a mí"</li>
       </ul>
     </div>
-
-    <p style="font-size:0.85rem; color:var(--gray); text-align:center;">El cuestionario tiene <strong>18 afirmaciones</strong> organizadas en 3 secciones. Al finalizar recibirás tu perfil de estilos de comunicación de forma inmediata.</p>
     
     <button class="btn-start" onclick="startSurvey()">Comenzar el cuestionario →</button>
   </div>
@@ -125,7 +120,6 @@
 </div>
 
 <script>
-// TEXTOS ACTUALIZADOS SEGÚN DOCUMENTO V2
 const sections = [
   { label: "Sección A", blocks: [
     { stem: "Es probable que las personas me encuentren:", items: [["Práctico y objetivo", "PR"], ["Emocional y hasta cierto punto motivador", "S"], ["Astuto y lógico", "PN"], ["Intelectual y un tanto complicado", "I"]] },
@@ -154,10 +148,10 @@ const sections = [
 ];
 
 const styleInfo = {
-  PR: { name: "Percepción (PR)", short: "Percepción", emoji: "🎯", desc: "Orientado a la acción, al aquí y ahora. Práctico, concreto y directo. Enfocado en resultados tangibles.", fortalezas: ["Pragmatismo y orientación a resultados", "Rapidez en la toma de decisiones", "Capacidad de ejecutar", "Sentido de urgencia"], ajuste: "Dar espacio a la reflexión antes de actuar y escuchar perspectivas conceptuales.", riesgo: "Puede parecer impaciente o superficial." },
-  I: { name: "Intuición (I)", short: "Intuición", emoji: "💡", desc: "Visionario y conceptual. Disfruta las ideas grandes, el largo plazo y los modelos mentales complejos.", fortalezas: ["Visión estratégica", "Creatividad", "Capacidad de síntesis e innovación"], ajuste: "Traducir ideas en pasos concretos y conectar con necesidades inmediatas.", riesgo: "Puede parecer desconectado de la realidad o difícil de entender." },
-  S: { name: "Sentimiento (S)", short: "Sentimiento", emoji: "🤝", desc: "Empático y relacional. Prioriza las personas, el clima emocional y la conexión interpersonal.", fortalezas: ["Alta inteligencia emocional", "Generación de confianza", "Escucha activa", "Motivación de equipos"], ajuste: "Combinar la empatía con criterios lógicos y orientados a resultados.", riesgo: "Puede ser percibido como poco objetivo o evitador de conflictos." },
-  PN: { name: "Pensamiento (PN)", short: "Pensamiento", emoji: "🧠", desc: "Analítico y sistemático. Valora la lógica, los procesos y el rigor en el razonamiento.", fortalezas: ["Análisis riguroso", "Metodología", "Precisión y calidad"], ajuste: "Abrir espacio a la intuición y a los aspectos relacionales no cuantificables.", riesgo: "Puede parecer frío o excesivamente controlado." }
+  PR: { name: "Percepción (PR)", short: "Percepción", emoji: "🎯", desc: "Orientado a la acción, al aquí y ahora. Práctico, concreto y directo. Enfocado en resultados tangibles.", fortalezas: ["Pragmatismo y orientación a resultados", "Rapidez en la toma de decisiones", "Capacidad de ejecutar", "Sentido de urgencia"], ajuste: "Dar espacio a la reflexión antes de actuar.", riesgo: "Puede parecer impaciente o superficial." },
+  I: { name: "Intuición (I)", short: "Intuición", emoji: "💡", desc: "Visionario y conceptual. Disfruta las ideas grandes, el largo plazo y los modelos mentales complejos.", fortalezas: ["Visión estratégica", "Creatividad", "Capacidad de síntesis e innovación"], ajuste: "Traducir ideas en pasos concretos.", riesgo: "Puede parecer desconectado de la realidad o difícil de entender." },
+  S: { name: "Sentimiento (S)", short: "Sentimiento", emoji: "🤝", desc: "Empático y relacional. Prioriza las personas, el clima emocional y la conexión interpersonal.", fortalezas: ["Alta inteligencia emocional", "Generación de confianza", "Escucha activa", "Motivación de equipos"], ajuste: "Combinar la empatía con criterios lógicos.", riesgo: "Puede ser percibido como poco objetivo o evitador de conflictos." },
+  PN: { name: "Pensamiento (PN)", short: "Pensamiento", emoji: "🧠", desc: "Analítico y sistemático. Valora la lógica, los procesos y el rigor en el razonamiento.", fortalezas: ["Análisis riguroso", "Metodología", "Precisión y calidad"], ajuste: "Abrir espacio a la intuición.", riesgo: "Puede parecer frío o excesivamente controlado." }
 };
 
 let allBlocks = [];
@@ -202,7 +196,7 @@ function renderBlock() {
     </div>
     <div style="display:flex; gap:10px;">
       ${currentIdx > 0 ? `<button class="btn-start" style="background:var(--gray); flex:1;" onclick="prev()">Anterior</button>` : ''}
-      ${currentIdx < 17 ? `<button class="btn-start" style="flex:1;" onclick="next()">Siguiente →</button>` : `<button class="btn-submit" style="flex:1;" onclick="finish()">Ver mis resultados ✓</button>`}
+      ${currentIdx < 17 ? `<button class="btn-start" style="flex:1;" onclick="next()">Siguiente →</button>` : `<button class="btn-submit" style="flex:1;" onclick="finish()">Ver resultados ✓</button>`}
     </div>
   `;
 }
@@ -216,6 +210,7 @@ function next() {
   if(isValid()) { currentIdx++; renderBlock(); window.scrollTo(0,0); }
   else alert("Debes asignar 6, 4, 3 y 1 sin repetir.");
 }
+
 function prev() { currentIdx--; renderBlock(); }
 
 function isValid() {
@@ -225,14 +220,8 @@ function isValid() {
 
 async function finish() {
   if(!isValid()) { alert("Completa la afirmación actual."); return; }
-  
   const totals = { PR: 0, I: 0, S: 0, PN: 0 };
-  allBlocks.forEach((b, idx) => {
-    b.items.forEach((it, i) => {
-      totals[it[1]] += answers[idx][i];
-    });
-  });
-
+  allBlocks.forEach((b, idx) => b.items.forEach((it, i) => totals[it[1]] += answers[idx][i]));
   enviarASheets(totals);
   showResults(totals);
 }
@@ -261,11 +250,7 @@ function enviarASheets(totals) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 }'; 
-  const data = {
-    nombre: document.getElementById('user-name').value,
-    email: document.getElementById('user-email').value,
-    ...totals
-  };
+  const data = { nombre: document.getElementById('user-name').value, email: document.getElementById('user-email').value, ...totals };
   fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
 }
 
@@ -273,68 +258,28 @@ function showResults(totals) {
   document.getElementById('screen-survey').classList.remove('active');
   document.getElementById('screen-result').classList.add('active');
   window.scrollTo(0,0);
-  
   const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
-  const domId = sorted[0][0], supId = sorted[1][0], leastId = sorted[3][0];
-  const dom = styleInfo[domId], sup = styleInfo[supId], least = styleInfo[leastId];
-  const range = sorted[0][1] - sorted[3][1];
-  const gap = sorted[0][1] - sorted[1][1];
+  const dom = styleInfo[sorted[0][0]], sup = styleInfo[sorted[1][0]], least = styleInfo[sorted[3][0]];
+  const range = sorted[0][1] - sorted[3][1], gap = sorted[0][1] - sorted[1][1];
 
-  const rWrap = document.getElementById('result-wrap');
-  rWrap.innerHTML = `
-    <div class="result-header">
-      <h2>Perfil de ${document.getElementById('user-name').value}</h2>
-      <p>CSS – Communication Styles Survey</p>
-    </div>
-
+  document.getElementById('result-wrap').innerHTML = `
+    <div class="result-header"><h2>Perfil de ${document.getElementById('user-name').value}</h2><p>CSS Survey</p></div>
     <div class="scores-grid">
-      ${sorted.map(([id, val], i) => `
-        <div class="score-card ${i==0?'dominant':i==1?'support':''}">
-          ${i==0?'<div class="badge-role">⭐ Estilo DOMINANTE</div>':i==1?'<div class="badge-role" style="background:var(--blue)">➕ Estilo de APOYO</div>':''}
-          <div style="font-size:1.8rem; margin-bottom:5px;">${styleInfo[id].emoji}</div>
-          <div style="font-weight:700; color:var(--navy);">${styleInfo[id].short}</div>
-          <div style="font-size:2.2rem; font-weight:800; color:${i==0?'var(--accent)':i==1?'var(--blue)':'var(--gray)'}">${val}</div>
-        </div>
-      `).join('')}
+      ${sorted.map(([id, val], i) => `<div class="score-card ${i==0?'dominant':i==1?'support':''}">
+          ${i==0?'<div class="badge-role">⭐ Dominante</div>':i==1?'<div class="badge-role" style="background:var(--blue)">➕ Apoyo</div>':''}
+          <div style="font-size:1.8rem;">${styleInfo[id].emoji}</div>
+          <div style="font-weight:700;">${styleInfo[id].short}</div>
+          <div style="font-size:2.2rem; font-weight:800;">${val}</div>
+      </div>`).join('')}
     </div>
-
     <div class="interp-card">
-      <h3>📊 Interpretación de tu perfil</h3>
-      <p><strong>Rango total</strong> (mayor – menor): <strong>${range} puntos</strong> — ${range > 20 ? '🔴 Alta especialización: tu estilo dominante marca fuertemente tu comunicación.' : '✅ Alta versatilidad: usas todos los estilos con fluidez.'}</p>
-      <p><strong>Diferencia dominante–apoyo:</strong> <strong>${gap} puntos</strong> — ${gap > 6 ? '⚠️ Diferencia significativa: el estilo dominante tiende a imponerse sobre los demás.' : '✅ Estilos dominante y de apoyo bien integrados.'}</p>
-      
-      <div class="style-detail">
-        <h4>${dom.emoji} Estilo DOMINANTE: ${dom.name} (${sorted[0][1]} pts)</h4>
-        <p>${dom.desc}</p>
-        <p style="margin-top:8px;"><strong>Tus fortalezas:</strong> ${dom.fortalezas.join(' · ')}</p>
-        <p style="margin-top:5px;"><strong>Riesgo a vigilar:</strong> ${dom.riesgo}</p>
-      </div>
-
-      <div class="style-detail" style="border-left-color:var(--blue); background:#f0f7ff">
-        <h4>${sup.emoji} Estilo de APOYO: ${sup.name} (${sorted[1][1]} pts)</h4>
-        <p>${sup.desc}</p>
-        <p style="margin-top:8px;"><strong>Cómo complementa a tu dominante:</strong> ${sup.fortalezas[0].toLowerCase()} y ${sup.fortalezas[1].toLowerCase()} equilibran tu perfil natural.</p>
-      </div>
+      <h3>📊 Interpretación</h3>
+      <p><strong>Rango:</strong> ${range} pts — ${range > 20 ? '🔴 Alta especialización' : '✅ Alta versatilidad'}</p>
+      <p><strong>Diferencia:</strong> ${gap} pts — ${gap > 6 ? '⚠️ Dominante se impone' : '✅ Bien integrados'}</p>
+      <div class="style-detail"><h4>${dom.emoji} DOMINANTE: ${dom.name} (${sorted[0][1]} pts)</h4><p>${dom.desc}</p></div>
+      <div class="style-detail" style="border-left-color:var(--blue); background:#f0f7ff"><h4>${sup.emoji} APOYO: ${sup.name} (${sorted[1][1]} pts)</h4><p>${sup.desc}</p></div>
     </div>
-
-    <div class="interp-card">
-      <h3>🔧 ¿Qué ajustar para conectar mejor?</h3>
-      <p><strong>Desde tu estilo ${dom.short}:</strong> ${dom.ajuste}</p>
-      <p style="margin-top:12px"><strong>Con personas de estilo ${least.short}</strong> (tu estilo menos utilizado con <strong>${sorted[3][1]} pts</strong>): ${least.desc.toLowerCase()} — ampliar la escucha hacia esa dimensión enriquece tu comunicación.</p>
-      <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:15px; margin-top:15px; font-size:0.85rem; color:#92400e;">
-        💡 <strong>Recuerda:</strong> Este resultado es un punto de partida, no una etiqueta. Los estilos son patrones, no rasgos fijos. La conciencia de tu patrón es el primer paso para ajustarlo cuando el contexto lo pida.
-      </div>
-    </div>
-
-    <div class="interp-card">
-      <h3>📖 Los cuatro estilos en síntesis</h3>
-      ${Object.entries(styleInfo).map(([k, v]) => `
-        <p style="margin-bottom:10px; font-size:0.9rem;"><strong>${v.emoji} ${v.name}:</strong> ${v.desc}</p>
-      `).join('')}
-    </div>
-
-    <button class="btn-print" onclick="window.print()">🖨️ Guardar Resultados como PDF</button>
-    <button id="btn-reload" class="btn-start" style="background:var(--navy); margin-top:10px" onclick="location.reload()">Volver a empezar</button>
+    <button class="btn-print" onclick="window.print()">🖨️ Guardar PDF</button>
   `;
 }
 </script>

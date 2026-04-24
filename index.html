@@ -19,19 +19,16 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; min-height: 100vh; }
 
-  /* HEADER */
   .header { background: var(--navy); color: white; padding: 28px 24px 20px; text-align: center; }
   .header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
   .header p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
 
-  /* SCREENS */
   .screen { display: none; }
   .screen.active { display: block; }
 
   /* INTRO */
   .intro-card { max-width: 640px; margin: 36px auto; background: white; border-radius: 16px; padding: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .intro-card h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; }
-  .intro-card p { font-size: 0.92rem; line-height: 1.7; color: #374151; margin-bottom: 12px; }
   .user-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; }
   .rule-box { background: var(--light-blue); border-left: 4px solid var(--blue); border-radius: 8px; padding: 14px 16px; margin: 16px 0; }
   .rule-box ul { padding-left: 18px; margin-top: 8px; }
@@ -128,31 +125,31 @@
 </div>
 
 <script>
-// TEXTOS EXACTOS DEL PDF
+// TEXTOS ACTUALIZADOS SEGÚN DOCUMENTO V2
 const sections = [
   { label: "Sección A", blocks: [
-    { stem: "Es probable que las personas me encuentren:", items: [["Práctico y objetivo", "PR"], ["Emocional y hasta cierto punto incentivador", "S"], ["Astuto y lógico", "PN"], ["Intelectual y un tanto complicado", "I"]] },
-    { stem: "Cuando trabajo en equipo, quiero:", items: [["Incentivar a mis colegas a interactuar intensamente", "S"], ["Tener certeza que el trabajo está siendo desarrollado de forma lógica y sistemática", "PN"], ["Tener certeza que la actividad tendrá el retorno suficiente para justificar el tiempo y la energía utilizados", "PR"], ["Ser respetado por las ideas y conceptos presentados", "I"]] },
+    { stem: "Es probable que las personas me encuentren:", items: [["Práctico y objetivo", "PR"], ["Emocional y hasta cierto punto motivador", "S"], ["Astuto y lógico", "PN"], ["Intelectual y un tanto complicado", "I"]] },
+    { stem: "Cuando trabajo en equipo, quiero:", items: [["Incentivar a mis colegas a interactuar constantemente", "S"], ["Tener certeza que el trabajo está siendo desarrollado de forma lógica y sistemática", "PN"], ["Tener certeza que la actividad tendrá el retorno suficiente para justificar el tiempo y la energía utilizados", "PR"], ["Ser respetado por las ideas y los conceptos que presento", "I"]] },
     { stem: "Al comunicarme con los otros, es probable que yo:", items: [["Demuestre desinterés hacia las personas excesivamente preocupadas con detalles", "I"], ["Muestre impaciencia con las personas que presentan ideas sin lógica", "PN"], ["Demuestre poco interés con ideas sin contenido ni originalidad", "S"], ["Ignore a aquellas personas preocupadas en el largo plazo y me concentre en el aquí y ahora", "PR"]] },
-    { stem: "Cuando los circunstancias me impiden hacer lo que quiero, es hora de:", items: [["Revisar los puntos débiles de mi abordaje, haciendo las modificaciones correspondientes", "PN"], ["Repensar todo lo que sucedió y desarrollar una nueva idea o abordaje", "I"], ["Tener en mente las metas, identificar los obstáculos, e ir modificando, el plan de acuerdo a ésto", "PR"], ["Analizar las motivaciones de los demás y desarrollar una nueva percepción de la situación", "S"]] },
-    { stem: "A veces pienso que los otros me ven como:", items: [["Excesivamente emotivo", "S"], ["Controlado demás y excesivamente lógico", "PN"], ["Preocupado demás con la ejecución y el 'cómo hacer'", "PR"], ["Excesivamente amarrado a las ideas y difícil de ser entendido", "I"]] },
-    { stem: "Cuando preciso escribir una carta desagradable, intento:", items: [["Esclarecer las razones fundamentales y asociarlas a la finalidad de esa comunicación", "PN"], ["Resumir claramente lo que quiero, preciso o espero del receptor", "PR"], ["Mostrar como mis puntos principales encajan en una perspectivas más amplia", "I"], ["Comunicar algo sobre mi manera de ser y mi estilo personal", "S"]] }
+    { stem: "Cuando algo me impide hacer lo que quiero, lo que hago es:", items: [["Identificar qué falló en mi forma de actuar y corregirlo", "PN"], ["Hacer una pausa, analizar lo que pasó y buscar una manera distinta de enfrentar la situación", "I"], ["No perder de vista el objetivo y ajustar el plan según los obstáculos que vayan apareciendo", "PR"], ["Entender qué mueve a las otras personas involucradas y replantear cómo veo la situación", "S"]] },
+    { stem: "A veces siento que los demás me perciben como alguien:", items: [["Que se deja llevar demasiado por las emociones", "S"], ["Que es demasiado frío o racional, y poco espontáneo", "PN"], ["Que se enfoca demasiado en los detalles de cómo hacer las cosas", "PR"], ["Que vive demasiado en las ideas y es difícil de seguir o entender", "I"]] },
+    { stem: "Cuando tengo que escribir un mensaje difícil o incómodo, lo que hago es:", items: [["Explicar claramente por qué escribo y qué busco lograr con ese mensaje", "PN"], ["Ser directo sobre lo que necesito o espero de la otra persona", "PR"], ["Conectar lo que digo con el contexto general o el panorama más grande", "I"], ["Dejar ver quién soy y cómo me expreso, incluso en mensajes difíciles", "S"]] }
   ]},
   { label: "Sección B", blocks: [
-    { stem: "Al confrontar diferencias de opinión, generalmente quedo satisfecho cuando:", items: [["Consigo compromiso, en uno o dos tópicos, para una discusión posterior", "PR"], ["Intento colocarme en el lugar del otro", "S"], ["Mantengo la posición ayudando al otro a ver las cosas de forma simple y lógica", "PN"], ["Confío en mi habilidad de conceptuar e hilvanar ideas", "I"]] },
-    { stem: "En términos de dimensión de tiempo, es probable que me concentre más:", items: [["En la certeza de ser bien recordado", "I"], ["En estar seguro que cualquier acción que realice sea coherente y sea parte de un progreso sistemático", "PN"], ["En mis acciones a corto plazo y su impacto en el aqui y ahora", "PR"], ["En acciones de impacto a largo plazo y en como ellas están relacionadas con los rumbos de mi vida", "S"]] },
-    { stem: "Al interactuar con personas con quienes fui presentado socialmente, considero:", items: [["Si éstas personas pueden contribuir con ideas buenas y desafiantes", "I"], ["Si tienen la cabeza 'bien puesta' y si son reflexivas", "PN"], ["Si son interesantes y divertidas", "S"], ["Si saben lo que hacen y son realizadoras", "PR"]] },
-    { stem: "Al encontrarme con grupos de poco contacto, me gusta dejar la impresión de ser:", items: [["Un pensador sistemático que consigue analizar con qué clase de problema está envuelto el grupo", "PN"], ["Una persona visionaria, capaz de contribuir en forma creativa", "I"], ["Pragmático, con vastos conocimientos, en condiciones de definir problemas y encontrar soluciones", "PR"], ["Alegre y sintonizado con el estado de espíritu y las necesidades del grupo", "S"]] },
-    { stem: "En situaciones tensas con otros, ocasionalmente puedo:", items: [["Expresarme con demasiada libertad, diciendo cosas que seria mejor no decir", "S"], ["Ser cuidadoso en demasía, evitando un involucramiento que podría ser gratificante", "PN"], ["Ser precipitado y envolverme con aspectos superficiales", "PR"], ["Desinteresarme de personas con virtudes, pero que no supieron mostrarlas", "I"]] },
-    { stem: "Si no tomo los recaudos necesarios, las personas pueden hallarme:", items: [["Frío y completamente impersonal", "PN"], ["Vacío, superficial o egocéntrico", "PR"], ["Antipático, con aires de superioridad o condescendiente", "I"], ["Temperamental, exaltado e imprevisible", "S"]] }
+    { stem: "Cuando tengo diferencias de opinión con alguien, me siento satisfecho cuando:", items: [["Logramos acordar algunos puntos y dejamos otros abiertos para seguir conversando", "PR"], ["Me esfuerzo por entender cómo ve las cosas la otra persona", "S"], ["Sostengo mi punto de vista y ayudo al otro a verlo de manera clara y ordenada", "PN"], ["Me apoyo en mi capacidad para conectar ideas y construir un argumento sólido", "I"]] },
+    { stem: "En cuanto al tiempo, es probable que me enfoque más en:", items: [["Dejar una buena impresión o un legado que perdure", "I"], ["Que cada cosa que haga tenga sentido dentro de un avance ordenado y consistente", "PN"], ["Lo que puedo hacer hoy y los resultados que veo de inmediato", "PR"], ["Las decisiones que moldean mi camino a futuro y le dan dirección a mi vida", "S"]] },
+    { stem: "Cuando conozco personas en un contexto social, lo que más me llama la atención es:", items: [["Si tienen ideas interesantes que me hacen pensar diferente", "I"], ["Si son personas sensatas, que piensan antes de hablar", "PN"], ["Si son entretenidas y con quienes es fácil conectar", "S"], ["Si son personas prácticas, que concretan lo que se proponen", "PR"]] },
+    { stem: "Cuando interactúo con grupos de poco contacto, me gusta que me vean como:", items: [["Alguien ordenado y analítico, capaz de entender el problema", "PN"], ["Alguien con visión de futuro que aporta ideas frescas y originales", "I"], ["Alguien práctico y con experiencia, que ayuda a encontrar soluciones concretas", "PR"], ["Alguien cercano y receptivo, que lee bien el ambiente y se adapta", "S"]] },
+    { stem: "En situaciones de tensión con otras personas, a veces puedo:", items: [["Hablar de más y decir cosas que después desearía no haber dicho", "S"], ["Ser demasiado cauteloso y perderme conexiones valiosas", "PN"], ["Actuar antes de pensar y quedarme en lo superficial", "PR"], ["Ignorar a personas valiosas porque no mostraron lo mejor de sí en ese momento", "I"]] },
+    { stem: "Si no tengo cuidado, las personas podrían percibirme como:", items: [["Distante y difícil de conectar a nivel personal", "PN"], ["Alguien sin mucho que aportar, superficial o centrado solo en sí mismo", "PR"], ["Arrogante o con actitud de saber más que los demás", "I"], ["Explosivo, intenso y difícil de predecir", "S"]] }
   ]},
   { label: "Sección C", blocks: [
-    { stem: "Me siento satisfecho cuando:", items: [["Hago más que lo planeado", "PR"], ["Tengo empatía por los sentimientos de los otros y reacciono de manera constructiva", "S"], ["Soluciono un problema de forma lógica y sistemática", "PN"], ["Desarrollo nuevas ideas que pueden ser aplicadas", "I"]] },
-    { stem: "Es fácil ser convincente cuando:", items: [["Está sintonizado mi propio estado de espíritu con los sentimientos de los otros", "S"], ["Soy paciente, cuidadoso y uso el raciocinio lógico", "PN"], ["Soy objetivo y voy directo al asunto", "PR"], ["Preveo todos los hechos relevantes y los tomo en consideración", "I"]] },
-    { stem: "Me siento satisfecho cuando los otros me ven como:", items: [["Teniendo un 'don' intelectual y con visión", "I"], ["Alguien que sabe lo que quiere y como llegar", "PR"], ["Creativo e incentivador", "S"], ["Confiable y ejecutor", "PN"]] },
-    { stem: "Al conocer una persona por primera vez, creo preferible:", items: [["Ser cauteloso asi pase por ser una persona poco interesante", "PN"], ["Ser considerado como una persona original, aunque parezca más inteligente que ella", "I"], ["Dejarla agradarme, aunque yo pueda parecer introvertido", "S"], ["Ser espontáneo, diciendo lo que pienso, aunque esto la inhiba", "PR"]] },
-    { stem: "Cuando soy presionado por alguien:", items: [["Soy extremamente emotivo e impulsivo", "S"], ["Soy inclinado a ser analítico y critico", "PN"], ["Me preocupo en hacer prevalecer mis argumentos", "PR"], ["Soy inclinado a aislarme en meditación", "I"]] },
-    { stem: "Por mi forma de encarar situaciones de trabajo, suelo envolverme demasiado:", items: [["En conflictos de sabiduría y procesos formales para solución de problemas", "PN"], ["En las soluciones del aquí y ahora", "PR"], ["En un mundo de conceptos, valores e ideas", "I"], ["En los sentimientos de los otros", "S"]] }
+    { stem: "Me siento satisfecho cuando:", items: [["Hago más de lo planeado", "PR"], ["Tengo empatía por los sentimientos de los otros y reacciono de manera constructiva", "S"], ["Soluciono un problema de forma lógica y sistemática", "PN"], ["Desarrollo nuevas ideas que pueden ser aplicadas", "I"]] },
+    { stem: "Me resulta más fácil convencer a otros cuando:", items: [["Logro conectar con lo que la otra persona siente en ese momento", "S"], ["Me tomo el tiempo necesario y construyo un argumento claro y razonado", "PN"], ["Soy directo y me enfoco en los hechos sin rodeos", "PR"], ["Anticipo la información importante y la tengo en cuenta antes de hablar", "I"]] },
+    { stem: "Me siento bien cuando los demás me perciben como:", items: [["Alguien con una mente aguda y capacidad para ver más allá", "I"], ["Alguien con claridad de propósito y que sabe cómo conseguir lo que se propone", "PR"], ["Alguien creativo que inspira y motiva a los demás", "S"], ["Alguien en quien se puede confiar y que cumple lo que promete", "PN"]] },
+    { stem: "Cuando conozco a alguien por primera vez, prefiero:", items: [["Ir con calma, aunque eso me haga parecer poco interesante al principio", "PN"], ["Mostrarme tal como soy, aunque parezca diferente a los demás", "I"], ["Tomarme el tiempo de conocerla de verdad, aunque parezca reservado", "S"], ["Ser directo y decir lo que pienso, aunque pueda incomodar", "PR"]] },
+    { stem: "Cuando alguien me presiona, tiendo a:", items: [["Reaccionar desde las emociones, de forma intensa e impulsiva", "S"], ["Ponerme analítico y empezar a cuestionar todo", "PN"], ["Defender mi postura con firmeza hasta que se reconozca mi punto", "PR"], ["Retirarme y procesar lo que pasa en silencio, a solas", "I"]] },
+    { stem: "Por mi forma de enfrentar el trabajo, es posible que me pierda demasiado en:", items: [["Los procedimientos y métodos formales para resolver problemas", "PN"], ["Buscar resultados inmediatos sin mirar el panorama completo", "PR"], ["Las ideas y los conceptos, perdiendo contacto con la realidad", "I"], ["Las emociones y necesidades de los demás, descuidando el trabajo", "S"]] }
   ]}
 ];
 
@@ -241,7 +238,29 @@ async function finish() {
 }
 
 function enviarASheets(totals) {
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbz1KNlLVKCLeF1dCnBpFgf7vGu7034W5l_b1XS0tx36vgNCpW4ZyNrVf65CHVE4t1n2ag/exec';
+  const scriptURL = 'function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    // Insertar los datos en la hoja
+    sheet.appendRow([
+      new Date(), 
+      data.nombre, 
+      data.email, 
+      data.PR, 
+      data.I, 
+      data.S, 
+      data.PN
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": error}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}'; 
   const data = {
     nombre: document.getElementById('user-name').value,
     email: document.getElementById('user-email').value,

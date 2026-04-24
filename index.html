@@ -71,7 +71,7 @@
 <div id="screen-intro" class="screen active">
   <div class="intro-card">
     <h2>¿Para qué sirve este cuestionario?</h2>
-    <p>Este instrumento te permite identificar tu <strong>estilo dominante</strong> y tu <strong>estilo de apoyo</strong> para comunicarte y relacionarte con los demás. No hay respuestas correctas ni incorrectas[cite: 148, 149].</p>
+    <p>Este instrumento te permite identificar tu <strong>estilo dominante</strong> y tu <strong>estilo de apoyo</strong> para comunicarte y relacionarte con los demás. No hay respuestas correctas ni incorrectas.</p>
     
     <div style="margin: 20px 0;">
       <p style="font-weight:700; margin-bottom:8px;">Tus datos de identificación:</p>
@@ -82,24 +82,24 @@
     <div class="rule-box">
       <strong>Cómo puntuar cada afirmación:</strong>
       <div class="score-legend">
-        <div class="score-item"><div class="score-badge" style="background:var(--navy)">6</div><span>La que <strong>más</strong> se parece a ti [cite: 153]</span></div>
-        <div class="score-item"><div class="score-badge" style="background:var(--blue)">4</div><span>La siguiente más cercana [cite: 153]</span></div>
-        <div class="score-item"><div class="score-badge" style="background:#6366f1">3</div><span>La tercera en cercanía [cite: 154]</span></div>
-        <div class="score-item"><div class="score-badge" style="background:var(--gray)">1</div><span>La que <strong>menos</strong> te representa [cite: 154]</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--navy)">6</div><span>La que <strong>más</strong> se parece a ti</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--blue)">4</div><span>La siguiente más cercana</span></div>
+        <div class="score-item"><div class="score-badge" style="background:#6366f1">3</div><span>La tercera en cercanía</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--gray)">1</div><span>La que <strong>menos</strong> te representa</span></div>
       </div>
     </div>
 
     <div class="rule-box" style="border-left-color: var(--accent); background: #fffbeb;">
       <strong style="color: #92400e;">Reglas de oro:</strong>
       <ul style="color: #92400e;">
-        <li>Usa los cuatro números (6, 4, 3 y 1) en cada afirmación [cite: 165]</li>
-        <li>No repitas un número dentro de la misma afirmación [cite: 165]</li>
-        <li>No dejes alternativas en blanco [cite: 168]</li>
+        <li>Usa los cuatro números (6, 4, 3 y 1) en cada afirmación</li>
+        <li>No repitas un número dentro de la misma afirmación</li>
+        <li>No dejes alternativas en blanco</li>
         <li>Responde rápido – si sobrepiensas, distorsionas tu patrón natural</li>
         <li>No busques "lo correcto", busca "lo más parecido a mí"</li>
       </ul>
     </div>
-    
+
     <button class="btn-start" onclick="startSurvey()">Comenzar el cuestionario →</button>
   </div>
 </div>
@@ -135,23 +135,23 @@ const sections = [
     { stem: "Cuando conozco personas en un contexto social, lo que más me llama la atención es:", items: [["Si tienen ideas interesantes que me hacen pensar diferente", "I"], ["Si son personas sensatas, que piensan antes de hablar", "PN"], ["Si son entretenidas y con quienes es fácil conectar", "S"], ["Si son personas prácticas, que concretan lo que se proponen", "PR"]] },
     { stem: "Cuando interactúo con grupos de poco contacto, me gusta que me vean como:", items: [["Alguien ordenado y analítico, capaz de entender el problema", "PN"], ["Alguien con visión de futuro que aporta ideas frescas y originales", "I"], ["Alguien práctico y con experiencia, que ayuda a encontrar soluciones concretas", "PR"], ["Alguien cercano y receptivo, que lee bien el ambiente y se adapta", "S"]] },
     { stem: "En situaciones de tensión con otras personas, a veces puedo:", items: [["Hablar de más y decir cosas que después desearía no haber dicho", "S"], ["Ser demasiado cauteloso y perderme conexiones valiosas", "PN"], ["Actuar antes de pensar y quedarme en lo superficial", "PR"], ["Ignorar a personas valiosas porque no mostraron lo mejor de sí en ese momento", "I"]] },
-    { stem: "Si no tengo cuidado, las personas podrían percibirme como:", items: [["Distante y difícil de conectar a nivel personal", "PN"], ["Alguien sin mucho que aportar, superficial o centrado solo en sí mismo", "PR"], ["Arrogante o con actitud de saber más que los demás", "I"], ["Explosivo, intenso y difícil de predecir", "S"]] }
+    { stem: "Si no tomo los recaudos necesarios, las personas podrían percibirme como:", items: [["Distante y difícil de conectar a nivel personal", "PN"], ["Alguien sin mucho que aportar, superficial o centrado solo en sí mismo", "PR"], ["Arrogante o con actitud de saber más que los demás", "I"], ["Explosivo, intenso y difícil de predecir", "S"]] }
   ]},
   { label: "Sección C", blocks: [
     { stem: "Me siento satisfecho cuando:", items: [["Hago más de lo planeado", "PR"], ["Tengo empatía por los sentimientos de los otros y reacciono de manera constructiva", "S"], ["Soluciono un problema de forma lógica y sistemática", "PN"], ["Desarrollo nuevas ideas que pueden ser aplicadas", "I"]] },
     { stem: "Me resulta más fácil convencer a otros cuando:", items: [["Logro conectar con lo que la otra persona siente en ese momento", "S"], ["Me tomo el tiempo necesario y construyo un argumento claro y razonado", "PN"], ["Soy directo y me enfoco en los hechos sin rodeos", "PR"], ["Anticipo la información importante y la tengo en cuenta antes de hablar", "I"]] },
     { stem: "Me siento bien cuando los demás me perciben como:", items: [["Alguien con una mente aguda y capacidad para ver más allá", "I"], ["Alguien con claridad de propósito y que sabe cómo conseguir lo que se propone", "PR"], ["Alguien creativo que inspira y motiva a los demás", "S"], ["Alguien en quien se puede confiar y que cumple lo que promete", "PN"]] },
-    { stem: "Cuando conozco a alguien por primera vez, prefiero:", items: [["Ir con calma, aunque eso me haga parecer poco interesante al principio", "PN"], ["Mostrarme tal como soy, aunque parezca diferente a los demás", "I"], ["Tomarme el tiempo de conocerla de verdad, aunque parezca reservado", "S"], ["Ser directo y decir lo que pienso, aunque pueda incomodar", "PR"]] },
+    { stem: "Cuando conocer a alguien por primera vez, prefiero:", items: [["Ir con calma, aunque eso me haga parecer poco interesante al principio", "PN"], ["Mostrarme tal como soy, aunque parezca diferente a los demás", "I"], ["Tomarme el tiempo de conocerla de verdad, aunque parezca reservado", "S"], ["Ser directo y decir lo que pienso, aunque pueda incomodar", "PR"]] },
     { stem: "Cuando alguien me presiona, tiendo a:", items: [["Reaccionar desde las emociones, de forma intensa e impulsiva", "S"], ["Ponerme analítico y empezar a cuestionar todo", "PN"], ["Defender mi postura con firmeza hasta que se reconozca mi punto", "PR"], ["Retirarme y procesar lo que pasa en silencio, a solas", "I"]] },
     { stem: "Por mi forma de enfrentar el trabajo, es posible que me pierda demasiado en:", items: [["Los procedimientos y métodos formales para resolver problemas", "PN"], ["Buscar resultados inmediatos sin mirar el panorama completo", "PR"], ["Las ideas y los conceptos, perdiendo contacto con la realidad", "I"], ["Las emociones y necesidades de los demás, descuidando el trabajo", "S"]] }
   ]}
 ];
 
 const styleInfo = {
-  PR: { name: "Percepción (PR)", short: "Percepción", emoji: "🎯", desc: "Orientado a la acción, al aquí y ahora. Práctico, concreto y directo. Enfocado en resultados tangibles.", fortalezas: ["Pragmatismo y orientación a resultados", "Rapidez en la toma de decisiones", "Capacidad de ejecutar", "Sentido de urgencia"], ajuste: "Dar espacio a la reflexión antes de actuar.", riesgo: "Puede parecer impaciente o superficial." },
-  I: { name: "Intuición (I)", short: "Intuición", emoji: "💡", desc: "Visionario y conceptual. Disfruta las ideas grandes, el largo plazo y los modelos mentales complejos.", fortalezas: ["Visión estratégica", "Creatividad", "Capacidad de síntesis e innovación"], ajuste: "Traducir ideas en pasos concretos.", riesgo: "Puede parecer desconectado de la realidad o difícil de entender." },
-  S: { name: "Sentimiento (S)", short: "Sentimiento", emoji: "🤝", desc: "Empático y relacional. Prioriza las personas, el clima emocional y la conexión interpersonal.", fortalezas: ["Alta inteligencia emocional", "Generación de confianza", "Escucha activa", "Motivación de equipos"], ajuste: "Combinar la empatía con criterios lógicos.", riesgo: "Puede ser percibido como poco objetivo o evitador de conflictos." },
-  PN: { name: "Pensamiento (PN)", short: "Pensamiento", emoji: "🧠", desc: "Analítico y sistemático. Valora la lógica, los procesos y el rigor en el razonamiento.", fortalezas: ["Análisis riguroso", "Metodología", "Precisión y calidad"], ajuste: "Abrir espacio a la intuición.", riesgo: "Puede parecer frío o excesivamente controlado." }
+  PR: { name: "Percepción (PR)", short: "Percepción", emoji: "🎯", desc: "Orientado a la acción, al aquí y ahora. Práctico, concreto y directo.", fortalezas: ["Pragmatismo", "Rapidez de decisión", "Ejecución"], ajuste: "Dar espacio a la reflexión antes de actuar.", riesgo: "Puede parecer impaciente o superficial." },
+  I: { name: "Intuición (I)", short: "Intuición", emoji: "💡", desc: "Visionario y conceptual. Disfruta las ideas grandes y el largo plazo.", fortalezas: ["Visión estratégica", "Creatividad", "Síntesis"], ajuste: "Traducir ideas en pasos concretos.", riesgo: "Puede parecer desconectado de la realidad." },
+  S: { name: "Sentimiento (S)", short: "Sentimiento", emoji: "🤝", desc: "Empático y relacional. Prioriza las personas y el clima emocional.", fortalezas: ["Inteligencia emocional", "Confianza", "Escucha"], ajuste: "Combinar la empatía con criterios lógicos.", riesgo: "Puede ser percibido como poco objetivo." },
+  PN: { name: "Pensamiento (PN)", short: "Pensamiento", emoji: "🧠", desc: "Analítico y sistemático. Valora la lógica y los procesos.", fortalezas: ["Análisis riguroso", "Metodología", "Precisión"], ajuste: "Abrir espacio a la intuición.", riesgo: "Puede parecer frío o controlado." }
 };
 
 let allBlocks = [];
@@ -160,9 +160,9 @@ let answers = {};
 let currentIdx = 0;
 
 function startSurvey() {
-  const n = document.getElementById('user-name').value;
-  const e = document.getElementById('user-email').value;
-  if(!n || !e) { alert("Ingresa nombre y correo para guardar tu perfil."); return; }
+  if(!document.getElementById('user-name').value || !document.getElementById('user-email').value) {
+    alert("Por favor completa tus datos."); return;
+  }
   document.getElementById('screen-intro').classList.remove('active');
   document.getElementById('screen-survey').classList.add('active');
   renderBlock();
@@ -208,9 +208,8 @@ function saveAns(i) {
 
 function next() {
   if(isValid()) { currentIdx++; renderBlock(); window.scrollTo(0,0); }
-  else alert("Debes asignar 6, 4, 3 y 1 sin repetir.");
+  else alert("Usa los números 6, 4, 3 y 1 sin repetir.");
 }
-
 function prev() { currentIdx--; renderBlock(); }
 
 function isValid() {
@@ -219,7 +218,7 @@ function isValid() {
 }
 
 async function finish() {
-  if(!isValid()) { alert("Completa la afirmación actual."); return; }
+  if(!isValid()) { alert("Completa la afirmación."); return; }
   const totals = { PR: 0, I: 0, S: 0, PN: 0 };
   allBlocks.forEach((b, idx) => b.items.forEach((it, i) => totals[it[1]] += answers[idx][i]));
   enviarASheets(totals);
@@ -266,22 +265,4 @@ function showResults(totals) {
     <div class="result-header"><h2>Perfil de ${document.getElementById('user-name').value}</h2><p>CSS Survey</p></div>
     <div class="scores-grid">
       ${sorted.map(([id, val], i) => `<div class="score-card ${i==0?'dominant':i==1?'support':''}">
-          ${i==0?'<div class="badge-role">⭐ Dominante</div>':i==1?'<div class="badge-role" style="background:var(--blue)">➕ Apoyo</div>':''}
-          <div style="font-size:1.8rem;">${styleInfo[id].emoji}</div>
-          <div style="font-weight:700;">${styleInfo[id].short}</div>
-          <div style="font-size:2.2rem; font-weight:800;">${val}</div>
-      </div>`).join('')}
-    </div>
-    <div class="interp-card">
-      <h3>📊 Interpretación</h3>
-      <p><strong>Rango:</strong> ${range} pts — ${range > 20 ? '🔴 Alta especialización' : '✅ Alta versatilidad'}</p>
-      <p><strong>Diferencia:</strong> ${gap} pts — ${gap > 6 ? '⚠️ Dominante se impone' : '✅ Bien integrados'}</p>
-      <div class="style-detail"><h4>${dom.emoji} DOMINANTE: ${dom.name} (${sorted[0][1]} pts)</h4><p>${dom.desc}</p></div>
-      <div class="style-detail" style="border-left-color:var(--blue); background:#f0f7ff"><h4>${sup.emoji} APOYO: ${sup.name} (${sorted[1][1]} pts)</h4><p>${sup.desc}</p></div>
-    </div>
-    <button class="btn-print" onclick="window.print()">🖨️ Guardar PDF</button>
-  `;
-}
-</script>
-</body>
-</html>
+          <div style="font-size:1.8

@@ -226,29 +226,7 @@ async function finish() {
 }
 
 function enviarASheets(totals) {
-  const scriptURL = 'function doPost(e) {
-  try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
-    
-    // Insertar los datos en la hoja
-    sheet.appendRow([
-      new Date(), 
-      data.nombre, 
-      data.email, 
-      data.PR, 
-      data.I, 
-      data.S, 
-      data.PN
-    ]);
-    
-    return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch(error) {
-    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": error}))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}'; 
+  const scriptURL = 'TU_URL_AQUI'; 
   const data = { nombre: document.getElementById('user-name').value, email: document.getElementById('user-email').value, ...totals };
   fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
 }

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS – Estilos de Comunicación</title>
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --blue: #1a56db;
+    --light-blue: #e8f0fe;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --gray: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f9fafb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; min-height: 100vh; }
+
+  .header { background: var(--navy); color: white; padding: 28px 24px 20px; text-align: center; }
+  .header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
+  .header p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  .intro-card { max-width: 640px; margin: 36px auto; background: white; border-radius: 16px; padding: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .intro-card h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; }
+  .user-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; }
+  .rule-box { background: var(--light-blue); border-left: 4px solid var(--blue); border-radius: 8px; padding: 14px 16px; margin: 16px 0; }
+  .rule-box ul { padding-left: 18px; margin-top: 8px; }
+  .rule-box li { font-size: 0.88rem; line-height: 1.8; color: #1e40af; }
+  
+  .score-legend { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin: 16px 0; }
+  .score-item { background: #f3f4f6; border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+  .score-badge { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: white; flex-shrink: 0; }
+
+  .progress-bar-wrap { background: #1e3a5f; padding: 10px 24px; }
+  .progress-fill { height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--accent)); transition: width 0.4s; width: 0%; }
+  .survey-wrap { max-width: 700px; margin: 28px auto; padding: 0 16px 60px; }
+  .block-card { background: white; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px; }
+  .item-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .score-select { width: 60px; border: 2px solid var(--border); border-radius: 8px; padding: 6px; font-weight: 700; text-align: center; }
+
+  .result-wrap { max-width: 680px; margin: 28px auto; padding: 0 16px 60px; }
+  .scores-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-bottom: 20px; }
+  .score-card { background: white; border-radius: 14px; padding: 20px; text-align: center; border-top: 5px solid var(--border); position: relative; }
+  .score-card.dominant { border-top-color: var(--accent); }
+  .score-card.support { border-top-color: var(--blue); }
+  .badge-role { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.7rem; padding: 3px 12px; border-radius: 99px; white-space: nowrap; }
+  .interp-card { background: white; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .style-detail { border-left: 4px solid var(--accent); background: var(--light-blue); padding: 14px; margin: 10px 0; border-radius: 0 10px 10px 0; }
+  
+  .btn-start, .btn-submit, .btn-print { cursor: pointer; border: none; border-radius: 10px; font-weight: 600; transition: 0.2s; width: 100%; display: block; }
+  .btn-start { padding: 14px; background: var(--blue); color: white; margin-top: 20px; }
+  .btn-submit { background: var(--green); color: white; padding: 14px; }
+  .btn-print { background: var(--navy); color: white; padding: 12px; margin-top: 10px; }
+  
+  @media print { .btn-print, .btn-restart, .header, .progress-bar-wrap, #btn-reload { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ESTILOS DE COMUNICACIÓN</h1>
+  <p>CSS – Communication Styles Survey</p>
+</div>
+
+<div id="screen-intro" class="screen active">
+  <div class="intro-card">
+    <h2>¿Para qué sirve este cuestionario?</h2>
+    <p>Este instrumento te permite identificar tu estilo dominante y tu estilo de apoyo para comunicarte y relacionarte con los demás. No hay respuestas correctas ni incorrectas.</p>
+    
+    <div style="margin: 20px 0;">
+      <p style="font-weight:700; margin-bottom:8px;">Tus datos de identificación:</p>
+      <input type="text" id="user-name" class="user-input" placeholder="Nombre completo">
+      <input type="email" id="user-email" class="user-input" placeholder="Correo electrónico">
+    </div>
+
+    <div class="rule-box">
+      <strong>Cómo puntuar cada afirmación:</strong>
+      <div class="score-legend">
+        <div class="score-item"><div class="score-badge" style="background:var(--navy)">6</div><span>La que más se parece a ti</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--blue)">4</div><span>La siguiente más cercana</span></div>
+        <div class="score-item"><div class="score-badge" style="background:#6366f1">3</div><span>La tercera en cercanía</span></div>
+        <div class="score-item"><div class="score-badge" style="background:var(--gray)">1</div><span>La que menos te representa</span></div>
+      </div>
+    </div>
+
+    <div class="rule-box" style="border-left-color: var(--accent); background: #fffbeb;">
+      <strong>Reglas de oro:</strong>
+      <ul>
+        <li>Usa los cuatro números (6, 4, 3 y 1) en cada afirmación</li>
+        <li>No repitas un número dentro de la misma afirmación</li>
+        <li>No dejes alternativas en blanco</li>
+        <li>Responde rápido – si sobrepiensas, distorsionas tu patrón natural</li>
+        <li>No busques "lo correcto", busca "lo más parecido a mí"</li>
+      </ul>
+    </div>
+
+    <button class="btn-start" onclick="startSurvey()">Comenzar el cuestionario →</button>
+  </div>
+</div>
+
+<div id="screen-survey" class="screen">
+  <div class="progress-bar-wrap">
+    <div style="display:flex; justify-content:space-between; color:white; font-size:0.8rem; margin-bottom:5px;">
+      <span id="prog-txt">Afirmación 1 de 18</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div style="background:#1e3a5f; height:8px; border-radius:99px;"><div id="prog-fill" class="progress-fill"></div></div>
+  </div>
+  <div class="survey-wrap" id="survey-wrap"></div>
+</div>
+
+<div id="screen-result" class="screen">
+  <div class="result-wrap" id="result-wrap"></div>
+</div>
+
+<script>
+const sections = [
+  { label: "Sección A", blocks: [
+    { stem: "Es probable que las personas me encuentren:", items: [["Práctico y objetivo", "PR"], ["Emocional y hasta cierto punto motivador", "S"], ["Astuto y lógico", "PN"], ["Intelectual y un tanto complicado", "I"]] },
+    { stem: "Cuando trabajo en equipo, quiero:", items: [["Incentivar a mis colegas a interactuar constantemente", "S"], ["Tener certeza que el trabajo está siendo desarrollado de forma lógica y sistemática", "PN"], ["Tener certeza que la actividad tendrá el retorno suficiente para justificar el tiempo y la energía utilizados", "PR"], ["Ser respetado por las ideas y los conceptos que presento", "I"]] },
+    { stem: "Al comunicarme con los otros, es probable que yo:", items: [["Demuestre desinterés hacia las personas excesivamente preocupadas con detalles", "I"], ["Muestre impaciencia con las personas que presentan ideas sin lógica", "PN"], ["Demuestre poco interés con ideas sin contenido ni originalidad", "S"], ["Ignore a aquellas personas preocupadas en el largo plazo y me concentre en el aquí y ahora", "PR"]] },
+    { stem: "Cuando algo me impide hacer lo que quiero, lo que hago es:", items: [["Identificar qué falló en mi forma de actuar y corregirlo", "PN"], ["Hacer una pausa, analizar lo que pasó y buscar una manera distinta de enfrentar la situación", "I"], ["No perder de vista el objetivo y ajustar el plan según los obstáculos que vayan apareciendo", "PR"], ["Entender qué mueve a las otras personas involucradas y replantear cómo veo la situación", "S"]] },
+    { stem: "A veces siento que los demás me perciben como alguien:", items: [["Que se deja llevar demasiado por las emociones", "S"], ["Que es demasiado frío o racional, y poco espontáneo", "PN"], ["Que se enfoca demasiado en los detalles de cómo hacer las cosas", "PR"], ["Que vive demasiado en las ideas y es difícil de seguir o entender", "I"]] },
+    { stem: "Cuando tengo que escribir un mensaje difícil o incómodo, lo que hago es:", items: [["Explicar claramente por qué escribo y qué busco lograr con ese mensaje", "PN"], ["Ser directo sobre lo que necesito o espero de la otra persona", "PR"], ["Conectar lo que digo con el contexto general o el panorama más grande", "I"], ["Dejar ver quién soy y cómo me expreso, incluso en mensajes difíciles", "S"]] }
+  ]},
+  { label: "Sección B", blocks: [
+    { stem: "Cuando tengo diferencias de opinión con alguien, me siento satisfecho cuando:", items: [["Logramos acordar algunos puntos y dejamos otros abiertos para seguir conversando", "PR"], ["Me esfuerzo por entender cómo ve las cosas la otra persona", "S"], ["Sostengo mi punto de vista y ayudo al otro a verlo de manera clara y ordenada", "PN"], ["Me apoyo en mi capacidad para conectar ideas y construir un argumento sólido", "I"]] },
+    { stem: "En cuanto al tiempo, es probable que me enfoque más en:", items: [["Dejar una buena impresión o un legado que perdure", "I"], ["Que cada cosa que haga tenga sentido dentro de un avance ordenado y consistente", "PN"], ["Lo que puedo hacer hoy y los resultados que veo de inmediato", "PR"], ["Las decisiones que moldean mi camino a futuro y le dan dirección a mi vida", "S"]] },
+    { stem: "Cuando conozco personas en un contexto social, lo que más me llama la atención es:", items: [["Si tienen ideas interesantes que me hacen pensar diferente", "I"], ["Si son personas sensatas, que piensan antes de hablar", "PN"], ["Si son entretenidas y con quienes es fácil conectar", "S"], ["Si son personas prácticas, que concretan lo que se proponen", "PR"]] },
+    { stem: "Cuando interactúo con grupos de poco contacto, me gusta que me vean como:", items: [["Alguien ordenado y analítico, capaz de entender el problema", "PN"], ["Alguien con visión de futuro que aporta ideas frescas y originales", "I"], ["Alguien práctico y con experiencia, que ayuda a encontrar soluciones concretas", "PR"], ["Alguien cercano y receptivo, que lee bien el ambiente y se adapta", "S"]] },
+    { stem: "En situaciones de tensión con otras personas, a veces puedo:", items: [["Hablar de más y decir cosas que después desearía no haber dicho", "S"], ["Ser demasiado cauteloso y perderme conexiones valiosas", "PN"], ["Actuar antes de pensar y quedarme en lo superficial", "PR"], ["Ignorar a personas valiosas porque no mostraron lo mejor de sí en ese momento", "I"]] },
+    { stem: "Si no tengo cuidado, las personas podrían percibirme como:", items: [["Distante y difícil de conectar a nivel personal", "PN"], ["Alguien sin mucho que aportar, superficial o centrado solo en sí mismo", "PR"], ["Arrogante o con actitud de saber más que los demás", "I"], ["Explosivo, intenso y difícil de predecir", "S"]] }
+  ]},
+  { label: "Sección C", blocks: [
+    { stem: "Me siento satisfecho cuando:", items: [["Hago más de lo planeado", "PR"], ["Tengo empatía por los sentimientos de los otros y reacciono de manera constructiva", "S"], ["Soluciono un problema de forma lógica y sistemática", "PN"], ["Desarrollo nuevas ideas que pueden ser aplicadas", "I"]] },
+    { stem: "Me resulta más fácil convencer a otros cuando:", items: [["Logro conectar con lo que la otra persona siente en ese momento", "S"], ["Me tomo el tiempo necesario y construyo un argumento claro y razonado", "PN"], ["Soy directo y me enfoco en los hechos sin rodeos", "PR"], ["Anticipo la información importante y la tengo en cuenta antes de hablar", "I"]] },
+    { stem: "Me siento bien cuando los demás me perciben como:", items: [["Alguien con una mente aguda y capacidad para ver más allá", "I"], ["Alguien con claridad de propósito y que sabe cómo conseguir lo que se propone", "PR"], ["Alguien creativo que inspira y motiva a los demás", "S"], ["Alguien en quien se puede confiar y que cumple lo que promete", "PN"]] },
+    { stem: "Cuando conozco a alguien por primera vez, prefiero:", items: [["Ir con calma, aunque eso me haga parecer poco interesante al principio", "PN"], ["Mostrarme tal como soy, aunque parezca diferente a los demás", "I"], ["Tomarme el tiempo de conocerla de verdad, aunque parezca reservado", "S"], ["Ser directo y decir lo que pienso, aunque pueda incomodar", "PR"]] },
+    { stem: "Cuando alguien me presiona, tiendo a:", items: [["Reaccionar desde las emociones, de forma intensa e impulsiva", "S"], ["Ponerme analítico y empezar a cuestionar todo", "PN"], ["Defender mi postura con firmeza hasta que se reconozca mi punto", "PR"], ["Retirarme y procesar lo que pasa en silencio, a solas", "I"]] },
+    { stem: "Por mi forma de enfrentar el trabajo, es posible que me pierda demasiado en:", items: [["Los procedimientos y métodos formales para resolver problemas", "PN"], ["Buscar resultados inmediatos sin mirar el panorama completo", "PR"], ["Las ideas y los conceptos, perdiendo contacto con la realidad", "I"], ["Las emociones y necesidades de los demás, descuidando el trabajo", "S"]] }
+  ]}
+];
+
+const styleInfo = {
+  PR: { name: "Percepción (PR)", short: "Percepción", emoji: "🎯", desc: "Orientado a la acción, al aquí y ahora. Práctico, concreto y directo.", fortalezas: ["Pragmatismo", "Rapidez de decisión", "Ejecución"], ajuste: "Dar espacio a la reflexión antes de actuar.", riesgo: "Puede parecer impaciente o superficial." },
+  I: { name: "Intuición (I)", short: "Intuición", emoji: "💡", desc: "Visionario y conceptual. Disfruta las ideas grandes y el largo plazo.", fortalezas: ["Visión estratégica", "Creatividad", "Síntesis"], ajuste: "Traducir ideas en pasos concretos.", riesgo: "Puede parecer desconectado de la realidad." },
+  S: { name: "Sentimiento (S)", short: "Sentimiento", emoji: "🤝", desc: "Empático y relacional. Prioriza las personas y el clima emocional.", fortalezas: ["Inteligencia emocional", "Confianza", "Escucha"], ajuste: "Combinar la empatía con criterios lógicos.", riesgo: "Puede ser percibido como poco objetivo." },
+  PN: { name: "Pensamiento (PN)", short: "Pensamiento", emoji: "🧠", desc: "Analítico y sistemático. Valora la lógica y los procesos.", fortalezas: ["Análisis riguroso", "Metodología", "Precisión"], ajuste: "Abrir espacio a la intuición.", riesgo: "Puede parecer frío o controlado." }
+};
+
+let allBlocks = [];
+sections.forEach(s => s.blocks.forEach(b => allBlocks.push({...b, secLabel: s.label})));
+let answers = {};
+let currentIdx = 0;
+
+function startSurvey() {
+  const n = document.getElementById('user-name').value;
+  const e = document.getElementById('user-email').value;
+  if(!n || !e) { alert("Por favor completa tus datos."); return; }
+  document.getElementById('screen-intro').classList.remove('active');
+  document.getElementById('screen-survey').classList.add('active');
+  renderBlock();
+}
+
+function renderBlock() {
+  const b = allBlocks[currentIdx];
+  const saved = answers[currentIdx] || {};
+  const wrap = document.getElementById('survey-wrap');
+  
+  document.getElementById('prog-txt').innerText = `Afirmación ${currentIdx+1} de 18`;
+  document.getElementById('prog-fill').style.width = `${((currentIdx+1)/18)*100}%`;
+  document.getElementById('prog-pct').innerText = `${Math.round(((currentIdx+1)/18)*100)}%`;
+
+  wrap.innerHTML = `
+    <div class="block-card">
+      <p style="color:var(--blue); font-weight:700; font-size:0.8rem; margin-bottom:10px;">${b.secLabel}</p>
+      <h3 style="margin-bottom:15px; border-bottom:2px solid var(--border); padding-bottom:10px;">${b.stem}</h3>
+      ${b.items.map((it, i) => `
+        <div class="item-row">
+          <div style="flex:1; font-size:0.9rem;">${it[0]}</div>
+          <select class="score-select" id="s-${i}" onchange="saveAns(${i})">
+            <option value="">-</option>
+            <option value="6" ${saved[i]==6?'selected':''}>6</option>
+            <option value="4" ${saved[i]==4?'selected':''}>4</option>
+            <option value="3" ${saved[i]==3?'selected':''}>3</option>
+            <option value="1" ${saved[i]==1?'selected':''}>1</option>
+          </select>
+        </div>
+      `).join('')}
+    </div>
+    <div style="display:flex; gap:10px;">
+      ${currentIdx > 0 ? `<button class="btn-start" style="background:var(--gray); flex:1;" onclick="prev()">Anterior</button>` : ''}
+      ${currentIdx < 17 ? `<button class="btn-start" style="flex:1;" onclick="next()">Siguiente →</button>` : `<button class="btn-submit" style="flex:1;" onclick="finish()">Ver resultados ✓</button>`}
+    </div>
+  `;
+}
+
+function saveAns(i) {
+  if(!answers[currentIdx]) answers[currentIdx] = {};
+  answers[currentIdx][i] = parseInt(document.getElementById(`s-${i}`).value);
+}
+
+function next() {
+  if(isValid()) { currentIdx++; renderBlock(); window.scrollTo(0,0); }
+  else alert("Usa los números 6, 4, 3 y 1 sin repetir.");
+}
+function prev() { currentIdx--; renderBlock(); }
+
+function isValid() {
+  const vals = Object.values(answers[currentIdx] || {}).filter(v => !isNaN(v));
+  return vals.length === 4 && new Set(vals).size === 4;
+}
+
+async function finish() {
+  if(!isValid()) { alert("Completa la afirmación."); return; }
+  const totals = { PR: 0, I: 0, S: 0, PN: 0 };
+  allBlocks.forEach((b, idx) => b.items.forEach((it, i) => totals[it[1]] += answers[idx][i]));
+  enviarASheets(totals);
+  showResults(totals);
+}
+
+function enviarASheets(totals) {
+  const scriptURL = 'function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    // Insertar los datos en la hoja
+    sheet.appendRow([
+      new Date(), 
+      data.nombre, 
+      data.email, 
+      data.PR, 
+      data.I, 
+      data.S, 
+      data.PN
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": error}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}'; 
+  const data = { nombre: document.getElementById('user-name').value, email: document.getElementById('user-email').value, ...totals };
+  fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+}
+
+function showResults(totals) {
+  document.getElementById('screen-survey').classList.remove('active');
+  document.getElementById('screen-result').classList.add('active');
+  window.scrollTo(0,0);
+  const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
+  const dom = styleInfo[sorted[0][0]], sup = styleInfo[sorted[1][0]];
+  const range = sorted[0][1] - sorted[3][1], gap = sorted[0][1] - sorted[1][1];
+
+  document.getElementById('result-wrap').innerHTML = `
+    <div class="result-header"><h2>Perfil de ${document.getElementById('user-name').value}</h2><p>CSS Survey</p></div>
+    <div class="scores-grid">
+      ${sorted.map(([id, val], i) => `
+        <div class="score-card ${i==0?'dominant':i==1?'support':''}">
+          <div style="font-size:1.8rem;">${styleInfo[id].emoji}</div>
+          <div style="font-weight:700;">${styleInfo[id].short}</div>
+          <div style="font-size:2.2rem; font-weight:800;">${val}</div>
+        </div>`).join('')}
+    </div>
+    <div class="interp-card">
+      <h3>Interpretación</h3>
+      <p><strong>Rango:</strong> ${range} pts. <strong>Diferencia:</strong> ${gap} pts.</p>
+      <div class="style-detail"><h4>${dom.emoji} Dominante: ${dom.name}</h4><p>${dom.desc}</p></div>
+      <div class="style-detail" style="border-left-color:var(--blue); background:#f0f7ff"><h4>${sup.emoji} Apoyo: ${sup.name}</h4><p>${sup.desc}</p></div>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨️ Guardar PDF</button>
+  `;
+}
+</script>
+</body>
+</html>
